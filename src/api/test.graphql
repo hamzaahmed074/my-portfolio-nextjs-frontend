@@ -1,0 +1,12 @@
+fragment TestFragment on Test {
+  Title
+}
+query getTest {
+  tests {
+    data {
+      attributes {
+        ...TestFragment
+      }
+    }
+  }
+}

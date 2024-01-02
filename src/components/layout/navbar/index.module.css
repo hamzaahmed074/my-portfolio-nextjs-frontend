@@ -1,0 +1,7 @@
+.navbar {
+    @apply text-white py-4 px-6 fixed left-0 right-0 top-0 z-10 drop-shadow-xl transition-all
+}
+
+.navbar-container {
+    @apply container flex flex-wrap items-center justify-between
+}

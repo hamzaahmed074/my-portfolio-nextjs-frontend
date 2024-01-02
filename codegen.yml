@@ -1,0 +1,28 @@
+overwrite: true
+schema: "http://127.0.0.1:1337/graphql"
+documents: 'src/api/*.graphql'
+generates:
+  src/api/browserSdk.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-rtk-query":
+          importBaseApiFrom: 'src/api/browserApi'
+          exportHooks: true
+    config:
+      rawRequest: true
+      dedupeFragments: true
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+  src/api/serverSdk.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+    config:
+      rawRequest: true
+      dedupeFragments: true
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
